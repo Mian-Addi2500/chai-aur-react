@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
 
+
+  /*
+   we use use [state hook] which update counter value using (setCounter) method and show update in 📌UI📌 easily without using [document.getelement] method which we use in 📌core JS📌
+
+   */
+
+  let [counter, setCounter] = useState(2);
+
+  function addVal() {
+    if (counter < 5) {
+      setCounter(counter + 1);
+      
+    } else {
+      setCounter(5);
+    }
+  }
+  const removeVal = () => {
+    if (counter > 0) {
+      setCounter(counter - 1);
+    } else {
+      setCounter(0);
+    }
+  };
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+      <h1>React Js </h1>
+      <h3>Counter : {counter}</h3>
+      <button type="button" onClick={addVal}>
+        Add Value | {counter}
+      </button>
+      <br />
+      <br />
+      <button type="button" onClick={removeVal}>
+        Remove Value | {counter}
+      </button>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. | Counter :{" "}
+        {counter}
       </p>
+      <p>Footer : {counter}</p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
